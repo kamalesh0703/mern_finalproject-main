@@ -15,7 +15,7 @@ function Cards() {
     let result = await resp.json();
     setFeatures(result.slice(0,3))
     setHotel(result.slice(0,3));
-    console.log(result)
+    console.log(result)            
   };
   return (
     <div className='cards'>
@@ -27,7 +27,7 @@ function Cards() {
             {hotel?.map((hotel)=>{
               return(
                 <CardItem
-              src={hotel.photos[0].filepath}
+              src={hotel?.photos[0].filepath}
               text={hotel.name}
               label={hotel.rating}
               loc={hotel.address}

@@ -1,20 +1,8 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import "./searchItem.css";
-import { useLocation } from "react-router-dom";
 import { Link } from 'react-router-dom';
 const SearchItem = ({item}) => {
-  const location = useLocation();
-  console.log(location.state)
-  
-  // const Millisecondperday=1000*60*60*24;
-  // console.log(getTime(localStorage.getItem("endDate")));
-  // const dateDifferent=(date1,date2)=>{
-  //   const timeDiffert=Math.abs(date2- date1);
-  //   const daydiff=Math.ceil(timeDiffert/Millisecondperday)
-  //   return daydiff
-  // }
-  // console.log(localStorage.getItem("endDate"))
-  // // console.log(dateDifferent(localStorage.getItem("endDate"),localStorage.getItem("startDate")))
+
   return (
    <>
       <div className="searchItem">

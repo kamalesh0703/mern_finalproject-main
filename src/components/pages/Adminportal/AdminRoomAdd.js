@@ -7,7 +7,7 @@ import room_no_icon from '../../assets/room-key.png'
 import description_icon from '../../assets/product-description.png'
 
 const AddRoom = () => {
-    const navigator = useNavigate();
+    const navigate = useNavigate();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [roomNumber, setRoomNumber] = useState('');
@@ -46,7 +46,7 @@ const AddRoom = () => {
         console.log(result)
         if(result.status==="sucess"){
             alert("add Room sucesfully")
-         navigator("/")
+            navigate("/admin-options")
         }
     }
     return (

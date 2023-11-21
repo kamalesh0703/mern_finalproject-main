@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './AdminDelete.css'
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import home_icon from '../../assets/home.png'
 import address_icon from '../../assets/pin.png'
 import price_icon from '../../assets/money.png'
@@ -11,35 +11,47 @@ import features_icon from '../../assets/new-features.png'
 import distance_icon from '../../assets/distance.png'
 import types_icon from '../../assets/categories.png'
 
-const DeleteHotel=()=>{
-    return(
-        <div className='main-container'>
-          <div className="main-header">
-            <div className="heading">Delete Hotel</div>
-            <div className="heading-underline"></div>
-          </div>
-          <div className="delete-inputs">
-            <div className="each-input">
-            <img src={types_icon} alt="" />
-            <input type="text" placeholder="Type" />
-            </div>
+const DeleteHotel = () => {
 
-            <div className="each-input">
-            <img src={home_icon} alt="" />
-            <input type="text" placeholder="Name of the hotel" />
-            </div>
-         
-            <div className="each-input">
-            <img src={city_icon} alt="" />
-            <input type="text" placeholder="City" />
-            </div>
+  const [hotelName, setHotelName] = useState('');
+  const [hotelCity, setHotelCity] = useState('');
+  const [hotelType, setHotelType] = useState('');
+
+  const getHotels = async () => {
+    fetch(`http://localhost:5500/Hotel/deleteHotel?name=${hotelName}&city=${hotelCity}&type=${hotelType}`, {
+      method: 'DELETE',
+    })
+      .then(res => res.text()) // or res.json()
+      .then(res => console.log(res))
+  };
+  return (
+    <div className='main-container'>
+      <div className="main-header">
+        <div className="heading">Delete Hotel</div>
+        <div className="heading-underline"></div>
+      </div>
+      <div className="delete-inputs">
+        <div className="each-input">
+          <img src={types_icon} alt="" />
+          <input type="text" placeholder="Typen of Hotel" onChange={(e) => setHotelType(e.target.value)} />
         </div>
-            
-            <div className="submit-container">
-                <div className='delete-button'>Delete</div>
-            </div>
+
+        <div className="each-input">
+          <img src={home_icon} alt="" />
+          <input type="text" placeholder="Name of the hotel" onChange={(e) => setHotelName(e.target.value)} />
         </div>
-    )
+
+        <div className="each-input">
+          <img src={city_icon} alt="" />
+          <input type="text" placeholder="City" onChange={(e) => setHotelCity(e.target.value)} />
+        </div>
+      </div>
+
+      <div className="submit-container">
+        <div className='delete-button' onClick={getHotels}>Delete</div>
+      </div>
+    </div>
+  )
 }
 
 export default DeleteHotel

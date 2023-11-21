@@ -29,6 +29,8 @@ const LoginSignup = () => {
       if(result.status === "200")  {
         alert(result.message)
         navigate("/admin-options")
+        localStorage.setItem("admin",true)
+        await window.location.reload(true)
       }
       else if(result.status ==="202"){
         alert(result.message)

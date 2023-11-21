@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Signup.css'
 import {useNavigate} from "react-router-dom";
 
@@ -59,7 +59,6 @@ const LoginSignup = () => {
         await window.location.reload(true)
         if(result.user.isAdmin === true)
           localStorage.setItem("admin",true)
-        // navigate()
       }
       else{
         alert(result.Msg)
@@ -75,9 +74,7 @@ const login=()=>{
  
 
 }
-// useEffect(()=>{
-//   console.log(action)
-// })
+
   return (
         <div className='container-right'>
           <div className="header">
