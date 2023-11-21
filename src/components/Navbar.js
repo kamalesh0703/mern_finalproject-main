@@ -46,6 +46,7 @@ useEffect(()=>{
 const logout=()=>{
   localStorage.removeItem('admin');
   localStorage.removeItem('isLogin');
+  localStorage.removeItem('username');
   window.location.reload(true)
 }
 

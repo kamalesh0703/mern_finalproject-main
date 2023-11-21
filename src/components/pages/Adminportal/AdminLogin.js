@@ -29,7 +29,10 @@ const LoginSignup = () => {
       if(result.status === "200")  {
         alert(result.message)
         navigate("/admin-options")
+        console.log(result)
+        localStorage.setItem("isLogin",true)
         localStorage.setItem("admin",true)
+        localStorage.setItem('username',result.user.username)
         await window.location.reload(true)
       }
       else if(result.status ==="202"){

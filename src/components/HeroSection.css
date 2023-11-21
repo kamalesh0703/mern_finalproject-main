@@ -99,6 +99,7 @@
     font-size: 18px;
     margin-right: -120px;
     margin-left: 10px;
+    text-transform: capitalize;
   }
   
   .headerSearchText {

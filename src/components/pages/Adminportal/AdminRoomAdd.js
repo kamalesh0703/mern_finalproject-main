@@ -85,7 +85,7 @@ const AddRoom = () => {
 
             <div className="room-submit-container">
                 <div className='save-button' onClick={()=>upload()}>Save</div>
-                <button onClick={()=>navigater()}>Next</button>
+                <button onClick={()=>navigater()} className='next-btn'>Finish</button>
             </div>
         </div>
     )

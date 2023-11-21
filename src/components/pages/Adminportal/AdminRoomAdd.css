@@ -95,7 +95,7 @@
     color: #676767;
 }
 
-.save-button{
+.save-button,.next-btn{
     width: 200px;
     height: 59px;
     color: #fff;

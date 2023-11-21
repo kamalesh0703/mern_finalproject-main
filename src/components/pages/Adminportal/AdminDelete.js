@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './AdminDelete.css'
 import { useNavigate } from "react-router-dom";
 import home_icon from '../../assets/home.png'
@@ -12,18 +12,25 @@ import distance_icon from '../../assets/distance.png'
 import types_icon from '../../assets/categories.png'
 
 const DeleteHotel = () => {
-
+const navigate=useNavigate();
   const [hotelName, setHotelName] = useState('');
   const [hotelCity, setHotelCity] = useState('');
   const [hotelType, setHotelType] = useState('');
+  const [response, setResponse] = useState('');
 
   const getHotels = async () => {
     fetch(`http://localhost:5500/Hotel/deleteHotel?name=${hotelName}&city=${hotelCity}&type=${hotelType}`, {
       method: 'DELETE',
     })
       .then(res => res.json()) // or res.json()
-      .then(res => console.log(res))
+      .then(res => setResponse(res))
   };
+  useEffect(()=>{
+    if(response.status){
+      navigate=('/admin-options')
+    }
+    
+  })
   return (
     <div className='main-container'>
       <div className="main-header">
