@@ -46,8 +46,11 @@ const AddRoom = () => {
         console.log(result)
         if(result.status==="sucess"){
             alert("add Room sucesfully")
-            navigate("/admin-options")
+            
         }
+    }
+    const navigater=()=>{
+        navigate("/admin-options")
     }
     return (
         <div className='room-container'>
@@ -82,6 +85,7 @@ const AddRoom = () => {
 
             <div className="room-submit-container">
                 <div className='save-button' onClick={()=>upload()}>Save</div>
+                <button onClick={()=>navigater()}>Next</button>
             </div>
         </div>
     )

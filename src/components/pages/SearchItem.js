@@ -7,7 +7,7 @@ const SearchItem = ({item}) => {
    <>
       <div className="searchItem">
       <img
-        src="https://cf.bstatic.com/xdata/images/hotel/square600/261707778.webp?k=fa6b6128468ec15e81f7d076b6f2473fa3a80c255582f155cae35f9edbffdd78&o=&s=1"
+        src={item.photos[4].filepath}
         alt=""
         className="siImg"
       />
@@ -16,10 +16,7 @@ const SearchItem = ({item}) => {
         <span className="siDistance">{item.city}||{item.distance} from center</span>
         <span className="siTaxiOp">Free airport taxi</span>
         <span className="siSubtitle">
-          Studio Apartment with Air conditioning
-        </span>
-        <span className="siFeatures">
-          {item.decs}
+        {item.decs}
         </span>
         <span className="siCancelOp">Free cancellation </span>
         <span className="siCancelOpSubtitle">

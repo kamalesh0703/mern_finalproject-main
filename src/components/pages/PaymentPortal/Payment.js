@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Payment.css'
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import card_name from '../../assets/id-card.png'
 import card_number from '../../assets/credit-card.png'
 import card_cvv from '../../assets/cvv.png'
 import card_expiry from '../../assets/expiry.png'
 
 const PaymentPortal = () => {
-    const navigate=useNavigate()
+    const navigate=useNavigate();
+    const location=useLocation()
+    const [totalprice,setTotalprice]=useState()
+    console.log(location.state)
     const SuccesRedirect=()=>{
       navigate("/payment-success",{})
     }
+    useEffect(()=>{
+      setTotalprice(location.state.totalprice)
+    })
   return (
     <div className='entire-payment'>
         <div className='payment-portal'>
@@ -42,14 +48,14 @@ const PaymentPortal = () => {
         </div>
         <div className='total-payment'>
             <div className='message'>You are paying,</div>
-            <div className='total'>Rs 10,000</div>
+            <div className='total'>{totalprice}</div>
             <div className='payment-breakdown'>
                 <div className='payment-elements'>
                     <div className='lhs'>
                       <div className='cost-category'>Cost of the rooms</div>
                       <div className='room-caption'>Rooms:1</div>
                    </div>
-                   <div className='breakdown-cost1'>Rs 10,000</div>
+                   <div className='breakdown-cost1'>Rs{totalprice}</div>
                 </div>
                 <div className='payment-elements'>
                     <div className='lhs'>
@@ -67,7 +73,7 @@ const PaymentPortal = () => {
                 </div>
                 <div className='payment-footer-element'>
                   <div className='total-footer'>Total</div>
-                  <div className='breakdown-cost4'>Rs 0</div>
+                  <div className='breakdown-cost4'>Rs {totalprice}</div>
                 </div>
             </div>
 

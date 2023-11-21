@@ -21,7 +21,7 @@ const DeleteHotel = () => {
     fetch(`http://localhost:5500/Hotel/deleteHotel?name=${hotelName}&city=${hotelCity}&type=${hotelType}`, {
       method: 'DELETE',
     })
-      .then(res => res.text()) // or res.json()
+      .then(res => res.json()) // or res.json()
       .then(res => console.log(res))
   };
   return (
