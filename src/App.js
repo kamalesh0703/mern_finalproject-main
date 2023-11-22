@@ -14,6 +14,8 @@ import DeleteHotel from './components/pages/Adminportal/AdminDelete';
 import AddRoom from './components/pages/Adminportal/AdminRoomAdd';
 import PaymentPortal from './components/pages/PaymentPortal/Payment';
 import Successful from './components/pages/PaymentPortal/Success';
+import SearchItem from './components/pages/SearchItem';
+import Hoteltype from './components/pages/Hoteltype';
 
 function App() {
   return (
@@ -33,6 +35,7 @@ function App() {
           <Route path='/add-room-ADMIN' element={<AddRoom/>} />
           <Route path='/payment-portal' element={<PaymentPortal/>}/>
           <Route path='/payment-success' element={<Successful/>}/>
+          <Route path='/hotle-type' element={<Hoteltype/>}/>
         </Routes>
       </Router>
     </>

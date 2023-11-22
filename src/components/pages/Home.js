@@ -5,7 +5,6 @@ import HeroSection from '../HeroSection';
 import Footer from '../Footer';
 import Featured from '../Featured';
 import './Home.css';
-// import MailList from '../mailList';
 
 function Home() {
   return (

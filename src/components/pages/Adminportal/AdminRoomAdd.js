@@ -17,8 +17,6 @@ const AddRoom = () => {
         setHotelId(localStorage.getItem('id'))
     })
     const upload = async () => {
-        const hotel = [{ "number": 101 }, { "number": 102 }, { "number": 103 }, { "number": 104 }, { "number": 105 }, { "number": 106 }, { "number": 107 }, { "number": 108 }, { "number": 109 }]
-        console.log(hotel)
         const rooms = roomNumber.split(",")
         var arr = [];
         for (var i = 0; i < rooms.length; i++) {

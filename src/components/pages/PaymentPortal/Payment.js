@@ -53,12 +53,12 @@ const PaymentPortal = () => {
         </div>
         <div className='total-payment'>
             <div className='message'>You are paying,</div>
-            <div className='total'>Rs:{ totalprice * room}</div>
+            <div className='total'>Rs:{days ? price: totalprice * room}</div>
             <div className='payment-breakdown'>
                 <div className='payment-elements'>
                     <div className='lhs'>
                       <div className='cost-category'>Cost of the rooms</div>
-                      <div className='room-caption'>Rooms:{room} rooms * {days } Days</div>
+                      <div className='room-caption'>Rooms:{room} rooms * {days==="0"?"1":days } Days</div>
                    </div>
                    <div className='breakdown-cost1'>Rs:{price}</div>
                 </div>

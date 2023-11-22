@@ -13,7 +13,7 @@ function Cards() {
   const getHotels = async () => {
     let resp = await fetch("http://localhost:5500/Hotel/getAllHotels");
     let result = await resp.json();
-    setFeatures(result.slice(0,3))
+    setFeatures(result.slice(0,3));
     setHotel(result.slice(0,3));
   };
   return (
@@ -31,8 +31,9 @@ function Cards() {
               label={hotel.rating}
               loc={hotel.address}
               price={hotel.price}
+              id={hotel._id}
               path='/services' 
-              key={hotel._id}
+              key={hotel._id} 
             />
               )
             })}
@@ -47,6 +48,8 @@ function Cards() {
               text="fdsf"
               label="dfsadf"
               path='/services'
+              price={hotel.price}
+              id={hotel._id}
             />
               )
             })}
