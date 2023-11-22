@@ -25,6 +25,7 @@ const Hotel = () => {
   const[dates,setdates]=useState(true)
   const[photos,setPhotos]=useState();
   const[totalprice,setTotalprice]=useState();
+  const[price,setprice]=useState();
   const hotelid=location.pathname.split("/")
 
   useEffect(()=>{
@@ -40,12 +41,23 @@ const Hotel = () => {
       setdates(false)
     }
   })
+  useEffect(()=>{
+    const datecout=localStorage.getItem('datediff');
+    if(dates){
+      localStorage.setItem('hotelprice',hotels.price)
+      localStorage.setItem('totalprice',hotels.price)
+    }
+    else{
+      localStorage.setItem('hotelprice',datecout*hotels.price)
+      localStorage.setItem('totalprice',hotels.price)
+    }
+  })
   const getHotel = async () => {
     let resp = await fetch(`http://localhost:5500/Hotel/getHotel/${hotelid[2]}`);
     let result = await resp.json();
     setHotels(result); 
     setPhotos(result.photos)
-    setTotalprice(dates? result.price :hotels.price*localStorage.getItem('datediff'))
+
   };
 
   const handleOpen = (i) => {
@@ -75,7 +87,6 @@ const Hotel = () => {
 const hadleclick=()=>{
   if(localStorage.getItem("isLogin")){
     setOpenModel(true)
-    navigate('/payment-portal',{state:{totalprice}})
   }
   else{
     navigate("/sign-up")

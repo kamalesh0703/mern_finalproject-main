@@ -15,7 +15,6 @@ function Cards() {
     let result = await resp.json();
     setFeatures(result.slice(0,3))
     setHotel(result.slice(0,3));
-    console.log(result)            
   };
   return (
     <div className='cards'>

@@ -11,7 +11,6 @@ const AddRoom = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [roomNumber, setRoomNumber] = useState('');
-    const [price, setPrice] = useState('');
     const [maxpeople, setMaxPeople] = useState('');
     const [hotelId, setHotelId] = useState('');
     useEffect(()=>{
@@ -31,7 +30,6 @@ const AddRoom = () => {
             body: JSON.stringify(
                 {
                     title: title,
-                    price: price,
                     maxPeople: maxpeople,
                     decs: description,
                     roomNumber: arr
@@ -62,10 +60,6 @@ const AddRoom = () => {
                 <div className="room-each-input">
                     <img src={title_icon} alt="" />
                     <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
-                </div>
-                <div className="room-each-input">
-                    <img src={title_icon} alt="" />
-                    <input type="text" placeholder="Room Price" onChange={(e) => setPrice(e.target.value)} />
                 </div>
 
                 <div className="room-each-input">

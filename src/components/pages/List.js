@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import "./list.css";
-// import Navbar from "../../components/navbar/Navbar";
-// import Header from "../../components/header/Header";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { format } from "date-fns";
@@ -10,7 +8,7 @@ import SearchItem from "./SearchItem";
 
 const List = () => {
   const location = useLocation();
-  const [loading,setLoading]=useState(true)
+  const [loading,setLoading]=useState(true);
   const [destination, setDestination] = useState(location.state.destination);
   const [dates, setDates] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
@@ -23,12 +21,12 @@ const List = () => {
   },[])
 
   const getHotels = async () => {
-    console.log(destination)
-    let resp = await fetch(`http://localhost:5500/Hotel/getAllHotels?city=${destination}&min=${min}&max=${max}`);
+    const city=destination;
+    let resp = await fetch(`http://localhost:5500/Hotel/getHotels?city=${city}&min=${min}&max=${max}`);
     let result = await resp.json();
     setHotels(result); 
     handlequerys()
-   setLoading(false)
+   setLoading(false);
   };
   const handlequerys=()=>{
     localStorage.setItem("destination",destination)
@@ -50,7 +48,7 @@ const List = () => {
             <h1 className="lsTitle">SEARCH</h1>
             <div className="lsItem">
               <label>Destination</label>
-              <input placeholder={destination} onChange={e=>setDestination(e.target.value)} type="text" />
+              <input placeholder={destination} onChange={e=>setDestination(e.target.value)} type="text"  />
             </div>
             <div className="lsItem">
             <label>Check-in Date</label>

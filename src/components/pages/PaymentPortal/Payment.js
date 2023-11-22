@@ -8,14 +8,17 @@ import card_expiry from '../../assets/expiry.png'
 
 const PaymentPortal = () => {
     const navigate=useNavigate();
-    const location=useLocation()
+    const location=useLocation();
+    const [room,setRoom]=useState();
     const [totalprice,setTotalprice]=useState()
-    console.log(location.state)
+    const [price,setprice]=useState()
     const SuccesRedirect=()=>{
       navigate("/payment-success",{})
     }
     useEffect(()=>{
-      setTotalprice(location.state.totalprice)
+      setTotalprice(localStorage.getItem('hotelprice'))
+      setprice(localStorage.getItem('totalprice'))
+      setRoom(location.state.count)
     })
   return (
     <div className='entire-payment'>
@@ -48,14 +51,14 @@ const PaymentPortal = () => {
         </div>
         <div className='total-payment'>
             <div className='message'>You are paying,</div>
-            <div className='total'>{totalprice}</div>
+            <div className='total'>Rs:{totalprice}</div>
             <div className='payment-breakdown'>
                 <div className='payment-elements'>
                     <div className='lhs'>
                       <div className='cost-category'>Cost of the rooms</div>
-                      <div className='room-caption'>Rooms:1</div>
+                      <div className='room-caption'>Rooms:{room}</div>
                    </div>
-                   <div className='breakdown-cost1'>Rs{totalprice}</div>
+                   <div className='breakdown-cost1'>Rs:{price}</div>
                 </div>
                 <div className='payment-elements'>
                     <div className='lhs'>

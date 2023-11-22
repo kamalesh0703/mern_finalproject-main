@@ -64,10 +64,6 @@
     max-width: 1024px;
   } 
 
-  .headerIcon{
-    /* color: ; */
-  }
-
   .headerBtn {
     background-color: #3A3B3C;
     color: white;
@@ -99,7 +95,6 @@
     font-size: 18px;
     margin-right: -120px;
     margin-left: 10px;
-    text-transform: capitalize;
   }
   
   .headerSearchText {

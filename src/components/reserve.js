@@ -9,6 +9,7 @@ function Reserve({ setOpen, hotelId }) {
     const navigate = useNavigate();
     const [rooms, setRooms] = useState([]);
     const [selectedRooms, setSelectedRooms] = useState([]);
+    const [roomcount, setroomcount] = useState([]);
 
     const getDatesInRange = (startDate, endDate) => {
         const start = new Date(startDate);
@@ -25,12 +26,10 @@ function Reserve({ setOpen, hotelId }) {
         return dates;
     };
     const alldates = getDatesInRange(localStorage.getItem('startDate'), localStorage.getItem('endDate'))
-console.log(new Date(alldates).getTime())
     const isAvailable = (roomNumber) => {
         const isFound = roomNumber.unavalibledate.some((date) =>
            alldates.includes(date)
         );
-        console.log(isFound);
         return !isFound;
     };
 
@@ -63,7 +62,16 @@ console.log(new Date(alldates).getTime())
             })
           );
           setOpen(false);
-          navigate("/");
+          var inputElems = document.getElementsByTagName("input"),
+          count = 0;
+          for (var i=0; i<inputElems.length; i++) {
+          if (inputElems[i].type === "checkbox" && inputElems[i].checked === true){
+              count++;
+           setroomcount(count);
+            }
+      }
+          navigate('/payment-portal',{state:{count}})
+
         } catch (err) {
             console.log(err)
         }
@@ -85,7 +93,6 @@ console.log(new Date(alldates).getTime())
                             <div className="rMax">
                                 Max people: <b>{item.maxPeople}</b>
                             </div>
-                            <div className="rPrice">{item.price}</div>
                         </div>
                         <div className="rSelectRooms">
                             {item.roomNumber.map((roomNumber) => (
