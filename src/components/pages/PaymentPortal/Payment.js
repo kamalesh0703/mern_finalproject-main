@@ -12,13 +12,15 @@ const PaymentPortal = () => {
     const [room,setRoom]=useState();
     const [totalprice,setTotalprice]=useState()
     const [price,setprice]=useState()
+    const [days,setDays]=useState()
     const SuccesRedirect=()=>{
       navigate("/payment-success",{})
     }
     useEffect(()=>{
       setTotalprice(localStorage.getItem('hotelprice'))
       setprice(localStorage.getItem('totalprice'))
-      setRoom(location.state.count)
+      setRoom(location.state.count);
+      setDays(localStorage.getItem('datediff'))
     })
   return (
     <div className='entire-payment'>
@@ -51,12 +53,12 @@ const PaymentPortal = () => {
         </div>
         <div className='total-payment'>
             <div className='message'>You are paying,</div>
-            <div className='total'>Rs:{totalprice}</div>
+            <div className='total'>Rs:{ totalprice * room}</div>
             <div className='payment-breakdown'>
                 <div className='payment-elements'>
                     <div className='lhs'>
                       <div className='cost-category'>Cost of the rooms</div>
-                      <div className='room-caption'>Rooms:{room}</div>
+                      <div className='room-caption'>Rooms:{room} rooms * {days } Days</div>
                    </div>
                    <div className='breakdown-cost1'>Rs:{price}</div>
                 </div>

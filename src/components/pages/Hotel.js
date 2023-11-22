@@ -24,8 +24,6 @@ const Hotel = () => {
   const [login,setlogin]=useState(false)
   const[dates,setdates]=useState(true)
   const[photos,setPhotos]=useState();
-  const[totalprice,setTotalprice]=useState();
-  const[price,setprice]=useState();
   const hotelid=location.pathname.split("/")
 
   useEffect(()=>{
